@@ -1,0 +1,19 @@
+{
+  "name": "sysex-reader",
+  "version": "0.0.1",
+  "description": "read and parse MIDI sysex files/streams",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Erik E. Seierstad",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "serve": "^14.1.2"
+  },
+  "dependencies": {
+    "es-module-shims": "^1.6.2",
+    "htm": "^3.1.1",
+    "preact": "^10.11.3"
+  }
+}
