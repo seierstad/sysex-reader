@@ -85,7 +85,7 @@ const NAMES = {
     0x5C: "Seekers Co. Ltd.",
     0x5F: "SD Card Association",
     0x00: {
-    	0x00: {
+        0x00: {
             0x01: "Time/Warner Interactive",
             0x02: "Advanced Gravis Comp. Tech Ltd.",
             0x03: "Media Vision",
@@ -101,7 +101,6 @@ const NAMES = {
             0x0D: "Lake Butler Sound Company",
             0x0E: "Alesis Studio Electronics",
             0x0F: "Sound Creation",
-            0x01: "Time/Warner Interactive",
             0x10: "DOD Electronics Corp.",
             0x11: "Studer-Editech",
             0x12: "Sonus",

@@ -1,0 +1,10 @@
+.polar-plot {
+	background: yellow;
+}
+
+.polar-plot > .zero {
+	fill: none;
+	stroke: black;
+	stroke-pattern: dashed;
+	
+}

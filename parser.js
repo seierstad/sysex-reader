@@ -2,18 +2,18 @@
 
 import {SYSEX_START, SYSEX_END} from "./constants.js";
 import {ID_EXTENSION, EXTENSIONS} from "./manufacturer_ids.js";
-import {NAMES} from "./manufacturer_names.js";
 import * as MANUFACTURER from "./manufacturers.js";
-
-import parseWaldorfMessage from "./waldorf/parser.js";
-import parseRolandMessage from "./roland/parser.js";
 
 
 const parseExtensionManufacturerMessage = (message) => {
-	return {"status": "unsupported"};
+    //TODO
+    if (message === EXTENSIONS) {
+        return "blah"; 
+    }
+    return {"status": "unsupported"};
 };
 
-const parseMessage = (message) => {
+const parseMessage = (message, index) => {
     /*
         parameters:
         message: Uint8Array (starting with SYSEX_START(0x70), ending with SYSEX_END (0x7F))
@@ -28,27 +28,28 @@ const parseMessage = (message) => {
 
     // byte 1 (and sometimes 2 and 3) identifies the manufacturer
     switch (message[1]) {
-        case ID_EXTENSION:
-            return parseExtensionManufacturerMessage(message);
-        case MANUFACTURER.WALDORF.ID:
-            parser = MANUFACTURER.WALDORF.PARSER;
-            break;
-        case MANUFACTURER.ROLAND.ID:
-            parser = MANUFACTURER.ROLAND.PARSER;
-            break;
-        default:
-            manufacturerSpecific = {"manufacturer_status": "unsupported"};
-            break;
+
+    case ID_EXTENSION:
+        return parseExtensionManufacturerMessage(message);
+    case MANUFACTURER.WALDORF.ID:
+        parser = MANUFACTURER.WALDORF.PARSER;
+        break;
+    case MANUFACTURER.ROLAND.ID:
+        parser = MANUFACTURER.ROLAND.PARSER;
+        break;
+    default:
+        manufacturerSpecific = {"manufacturer_status": "unsupported"};
+        break;
     }
 
     if (parser !== null) {
-        manufacturerSpecific = parser(message.subarray(2, message.length - 1))
+        manufacturerSpecific = parser(message.subarray(2, message.length - 1));
     }
 
     return {
         "message_data": message,
-    	"manufacturer": NAMES[message[1]],
-    	...manufacturerSpecific
+        "message_index": index,
+        ...manufacturerSpecific
     };
 };
 

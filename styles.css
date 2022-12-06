@@ -1,0 +1,32 @@
+        .polar-plot {
+    background: yellow;
+}
+
+.polar-plot > .zero,
+.polar-plot > .plus-one,
+.polar-plot > .minus-one {
+    fill: none;
+    stroke: black;
+    stroke-dasharray: 2 6;
+    vector-effect: non-scaling-stroke;
+}
+
+.polar-plot > .wave {
+    fill: none;
+    stroke: black;
+    stroke-width: 1;
+    opacity: 0.1;
+    vector-effect:  non-scaling-stroke;
+    /*
+    transition-property: stroke-width, opacity;
+    transition-duration: 0.3s, 1.5s;
+    */
+}
+
+.polar-plot > .wave.selected {
+    opacity: 1;
+    stroke-width: 2;
+    fill: rgba(0, 0, 0, .2);
+    /*transition: opacity 0.1s;*/
+}
+

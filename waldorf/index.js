@@ -5,8 +5,8 @@ import VIEW from "./waldorf-view.js";
 import PARSER from "./parser.js";
 
 export {
-	MANUFACTURER_ID as ID,
-	MANUFACTURER_NAME as NAME,
-	VIEW,
-	PARSER
+    MANUFACTURER_ID as ID,
+    MANUFACTURER_NAME as NAME,
+    VIEW,
+    PARSER
 };

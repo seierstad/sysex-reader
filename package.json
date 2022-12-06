@@ -9,6 +9,8 @@
   "author": "Erik E. Seierstad",
   "license": "GPL-3.0-or-later",
   "devDependencies": {
+    "eslint": "^8.29.0",
+    "eslint-plugin-react": "^7.31.11",
     "serve": "^14.1.2"
   },
   "dependencies": {

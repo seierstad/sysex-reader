@@ -9,13 +9,13 @@ const parseEnsoniqMessage = (message) => {
     let parser;
 
     switch (message[0]) {
-        case MODEL.MIRAGE.ID:
-            parser = MODEL.MIRAGE.PARSER;
-            break;
+    case MODEL.MIRAGE.ID:
+        parser = MODEL.MIRAGE.PARSER;
+        break;
 
-        default:
-            modelSpecific = {"model": "unsupported"};
-            break;
+    default:
+        modelSpecific = {"model": "unsupported"};
+        break;
     }
     if (parser !== null) {
         modelSpecific = parser(message.subarray(1));

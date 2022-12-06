@@ -1,11 +1,12 @@
 "use strict";
-import {MODEL_ID} from "./constants.js";
+import {MESSAGE} from "../constants.js";
 import PARSER from "./parser.js";
 import VIEW from "./view.js";
 
+const ID = MESSAGE.WAVETABLE_DUMP;
+
 export {
-    MODEL_ID as ID,
-    MODEL_ID,
+    ID,
     PARSER,
     VIEW
 };

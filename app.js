@@ -1,7 +1,11 @@
 "use strict";
-import {render, Component, useState, useEffect, html} from "imports";
+import {render, useState, useEffect, html} from "imports";
 
+import * as MANUFACTURERS from "./manufacturers.js";
+import {groupReducer} from "./functions.js";
 import {parser} from "./parser.js";
+
+const MANUF_ARRAY = Object.entries(MANUFACTURERS);
 
 let model = [];
 
@@ -20,21 +24,12 @@ async function handleFileDrop (event) {
 
 const handleDragOver = (event) => {
     event.preventDefault();
-}
+};
 
 const handleDragEnter = (event) => {
     event.dataTransfer.dropEffect = "copy";
     event.dataTransfer.effectAllowed = "copy";
     event.preventDefault();
-};
-
-const groupReducer = (keyFunction) => (acc = {}, curr, index) => {
-    const key = keyFunction(curr);
-    if (!Object.prototype.hasOwnProperty.call(acc, key)) {
-        acc[key] = [];
-    }
-    acc[key].push({index, message: curr});
-    return acc;
 };
 
 const manufacturerIdPicker = ({manufacturer_id}) => manufacturer_id;
@@ -53,13 +48,19 @@ function File (props = {}) {
     const groupByManufacturerReducer = groupReducer(manufacturerIdPicker);
     const grouped = messages.reduce(groupByManufacturerReducer, {});
 
-    console.log({grouped});
+    const groups = [];
+    for (const [group_manufacturer_id, manufacturer_messages] of Object.entries(grouped)) {
+        const [ , {VIEW :ManufacturerView}] = MANUF_ARRAY.find(([, {ID}], index, arr) => ID == group_manufacturer_id || index === arr.length - 1);
+        groups.push(html`<${ManufacturerView} messages=${manufacturer_messages} />`);
+    }
+
     return html`
         <div class="file">
             <h3>${name}</h3>
             <span>${size} bytes</span>
             <span>${type}</span>
             <span>${messages.length} messages</span>
+            <div>${groups}</div>
         </div>
     `;
 }
@@ -73,13 +74,13 @@ function App (props) {
         (async () => {
             if (files !== null) {
                 const parsedFiles = await Promise.all([...files]
-                    .map((file, index) => file.arrayBuffer()
+                    .map((file) => file.arrayBuffer()
                         .then(buffer => ({bytes: buffer, name: file.name, size: file.size, type: file.type, messages: parser(buffer)}))));
 
                 updateModel(parsedFiles);
             }
         })();
-    }, [files])
+    }, [files]);
 
     const handleFileDrop = (event) => {
         setFiles(event.dataTransfer.files);
