@@ -3,9 +3,12 @@
 import {DEVICE_ID_BROADCAST} from "../constants.js";
 
 import {MODEL_ID} from "./index.js";
-import {MESSAGE, MESSAGE_TYPE, MESSAGE_SUBJECT, NAME} from "./constants.js";
+import {MESSAGE, MESSAGE_ACTION, MESSAGE_SUBJECT, NAME} from "./constants.js";
 
-import parseWavetableDump from "./wavetable_dump/parser.js";
+import parseWavetableDump from "./wavetable-dump/parser.js";
+import parseSoundRequest from "./sound-request/parser.js";
+
+import {MESSAGE_TYPE} from "./message-types.js";
 
 const parseDeviceId = (id) => {
     return {
@@ -15,7 +18,7 @@ const parseDeviceId = (id) => {
 
 
 const parseMessageID = (byte) => {
-    const message = [MESSAGE_SUBJECT[byte & 0x0F], MESSAGE_TYPE[byte & 0xF0]].join(" ");
+    const message = [MESSAGE_SUBJECT[byte & 0x0F], MESSAGE_ACTION[byte & 0xF0]].join(" ");
     return {message};
 };
 
@@ -24,15 +27,25 @@ const parseMessageID = (byte) => {
 const parseBlofeldMessage = (message) => {
 
     let messageContent;
+    let parser = null;
 
     switch (message[1]) {
-    case MESSAGE.WAVETABLE_DUMP:
-        messageContent = parseWavetableDump(message.subarray(2));
+
+    case MESSAGE_TYPE.WAVETABLE_DUMP.ID:
+        parser = MESSAGE_TYPE.WAVETABLE_DUMP.PARSER;
+        break;
+
+    case MESSAGE.SOUND_REQUEST:
+        parser = MESSAGE_TYPE.SOUND_REQUEST.PARSER;
         break;
 
     default:
         messageContent = {"message_support": "unsupported"};
         break;
+    }
+
+    if (parser !== null) {
+        messageContent = parser(message.subarray(2));
     }
 
     const result = {

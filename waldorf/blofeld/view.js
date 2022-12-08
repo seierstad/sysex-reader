@@ -5,7 +5,7 @@ import {html} from "imports";
 import {groupReducer} from "../../functions.js";
 
 import {NAME} from "./constants.js";
-import {MESSAGE_TYPE} from "./message_types.js";
+import {MESSAGE_TYPE} from "./message-types.js";
 
 
 const MESSAGE_TYPE_ARRAY = Object.entries(MESSAGE_TYPE);

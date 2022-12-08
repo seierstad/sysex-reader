@@ -14,7 +14,7 @@ const MESSAGE = {
     GLOBAL_PARAMETER_CHANGE: 0x24
 };
 
-const MESSAGE_TYPE = {
+const MESSAGE_ACTION = {
     0x00: "request",
     0x10: "dump",
     0x20: "parameter change"
@@ -29,7 +29,7 @@ const MESSAGE_SUBJECT = {
 export {
     MODEL_ID,
     MESSAGE,
-    MESSAGE_TYPE,
+    MESSAGE_ACTION,
     MESSAGE_SUBJECT,
     NAME
 };

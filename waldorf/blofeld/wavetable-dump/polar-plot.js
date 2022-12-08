@@ -80,6 +80,7 @@ const PolarPlot = (props) => {
                     key=${index}
                 />
             `)}
+            <circle class="center-point" cx="0" cy="0" r="1" />
         </svg>
         </div>
     `;

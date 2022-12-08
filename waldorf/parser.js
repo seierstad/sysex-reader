@@ -22,7 +22,6 @@ const parseWaldorfMessage = (message) => {
     }
 
     return {
-        "status": "TODO!!!",
         "manufacturer": MANUFACTURER_NAME,
         "manufacturer_id": MANUFACTURER_ID,
         ...modelSpecific
