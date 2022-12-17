@@ -4,6 +4,8 @@ import {render, useState, useEffect, html} from "imports";
 import * as MANUFACTURERS from "./manufacturers.js";
 import {groupReducer} from "./functions.js";
 import {parser} from "./parser.js";
+import HexMessage from "./hex-monitor.js";
+import Midi from "web-midi/midi.js";
 
 const MANUF_ARRAY = Object.entries(MANUFACTURERS);
 
@@ -75,7 +77,15 @@ function App (props) {
             if (files !== null) {
                 const parsedFiles = await Promise.all([...files]
                     .map((file) => file.arrayBuffer()
-                        .then(buffer => ({bytes: buffer, name: file.name, size: file.size, type: file.type, messages: parser(buffer)}))));
+                        .then(buffer => ({
+                            bytes: buffer,
+                            name: file.name,
+                            size: file.size,
+                            type: file.type,
+                            messages: parser(buffer)
+                        }))
+                    )
+                );
 
                 updateModel(parsedFiles);
             }
@@ -88,12 +98,18 @@ function App (props) {
         event.preventDefault();
     };
 
+    const handleMidiAccessButton = (event) => {
+
+    }
+
     return html`
         <main>
             <h1>Sysex reader</h1>
+            <${Midi} />
             <div class="drop-zone" onDrop=${handleFileDrop} onDragenter=${handleDragEnter} onDragover=${handleDragOver}>
                 <h2>Drop .syx-files here</h2>
             </div>
+            <${HexMessage} message=${[1, 123, 22, 16, 15, 255, 11, 1]} marks=${[[2, 3], [4, 94]]} />
             ${model && model.length > 0 ? model.map(file => html`<${File} file=${file} />`) : null}
         </main>
     `;
