@@ -1,0 +1,189 @@
+"use strict";
+import {FEEDBACK_MAP} from "./feedback-map.js";
+import {COMPRESSOR_MAP} from "./compressor-limiter-map.js";
+import {SLOW_GEAR_MAP} from "./slow-gear-map.js";
+import {AUTO_WAH_MAP} from "./wah-map.js";
+import {SEND_RETURN_MAP} from "../send-return-map.js";
+import {PREAMP_PATCH_MAP} from "../preamp-map.js";
+import {SPEAKER_SIMULATOR_MAP} from "../speaker-simulator-map.js";
+import {EQ_MAP} from "./eq-map.js";
+import {NOISE_SUPPRESSOR_MAP} from "./noise-suppressor-map.js";
+import {VIBRATO_MAP} from "./vibrato-map.js";
+import {FOOT_VOLUME_MAP} from "./foot-volume-map.js";
+import {DELAY_BASIC_MAP} from "./delay-basic-map.js";
+import {CHORUS_BASIC_MAP} from "./chorus-map.js";
+import {TREMOLO_PANNER_MAP} from "./tremolo-panner-map.js";
+import {UNUSED} from "./data-types.js";
+
+/*
+OFFSETS for VINTAGE algorithm:
+ORDER: 0x0001,
+REVERB_CONNECT: 0x001B,
+TOGGLE: 0x001C,
+FB: 0x0020,
+CL: 0x0027,
+SG: 0x002F,
+AW: 0x0031,
+S/R: 0x0039,
+PRE: 0x003D,
+SPS: 0x0047,
+EQ:  0x004B,
+NS:  0x0054,
+VB:  0x0057,
+FV:  0x005B,
+DD:  0x005D,
+CE:  0x0064,
+PN:  0x0068,
+RV:  0x006D,
+MASTER: 0x0136,
+ASSIGN: 0x013A,
+NAME:   0x020A
+
+*/
+
+const FB = {
+	NAME: "Feedbacker",
+	SHORT_NAME: "FB",
+	ORDER_ID: 0x00,
+	OFFSET: 0x0020,
+	TOGGLE_MASK: 0b01000000000000000000000000000000,
+	MAP: FEEDBACK_MAP
+}
+
+const CL = {
+	NAME: "Compressor/Limiter",
+	SHORT_NAME: "CL",
+	ORDER_ID: 0x01,
+	OFFSET: 0x0027;
+	TOGGLE_MASK: 0b00100000000000000000000000000000,
+	MAP: COMPRESSOR_MAP
+};
+
+const SG = {
+	NAME: "Slow Gear",
+	SHORT_NAME: "SG",
+	ORDER_ID: 0x02,
+	OFFSET: 0x002F,
+	TOGGLE_MASK: 0b00010000000000000000000000000000,
+	MAP: SLOW_GEAR_MAP
+};
+
+const AW = {
+	NAME: "Wah Pedal",
+	SHORT_NAME: "WAH",
+	ORDER_ID: 0x03,
+	OFFSET: 0x0031,
+	TOGGLE_MASK: 0b00001000000000000000000000000000,
+	MAP: AUTO_WAH_MAP
+};
+
+const SR = {
+	NAME: "Send/Return",
+	SHORT_NAME: "S/R",
+	ORDER_ID: 0x02,
+	OFFSET: 0x0039,
+	TOGGLE_MASK: 0b00010000000000000000000000000000,
+	MAP: SEND_RETURN_MAP
+};
+
+const PRE = {
+	NAME: "Preamp",
+	SHORT_NAME: "PRE",
+	ORDER_ID: 0x03,
+	OFFSET: 0x003D,
+	TOGGLE_MASK: 0b00001000000000000000000000000000,
+	MAP: PREAMP_PATCH_MAP
+};
+
+const SPS = {
+	NAME: "Speaker Simulator",
+	SHORT_NAME: "SPS",
+	ORDER_ID: 0x04,
+	OFFSET: 0x0047,
+	TOGGLE_MASK: 0b00000100000000000000000000000000,
+	MAP: SPEAKER_SIMULATOR_MAP
+};
+
+const EQ = {
+	NAME: "Equalizer",
+	SHORT_NAME: "EQ",
+	ORDER_ID: 0x05,
+	OFFSET: 0x004B,
+	TOGGLE_MASK: 0b00000010000000000000000000000000,
+	MAP: EQ_MAP
+};
+
+const NS = {
+	NAME: "Noise Suppressor",
+	SHORT_NAME: "NS",
+	ORDER_ID: 0x06,
+	OFFSET: 0x0054,
+	TOGGLE_MASK: 0b00000001000000000000000000000000,
+	MAP: NOISE_SUPPRESSOR_MAP
+};
+
+const VB = {
+	NAME: "Vibrato",
+	SHORT_NAME: "VB",
+	ORDER_ID: 0x00,
+	OFFSET: 0x0057,
+	TOGGLE_MASK: 0b0,
+	MAP: VIBRATO_MAP
+};
+
+const FV = {
+	NAME: "Foot Volume",
+	SHORT_NAME: "FV",
+	ORDER_ID: 0x08,
+	OFFSET: 0x005B,
+	TOGGLE_MASK: 0b00000000001000000000000000000000,
+	MAP: [...FOOT_VOLUME_MAP, {name: "unused", byteLength: 1, values: UNUSED}]
+};
+
+const DD = {
+	NAME: "Delay",
+	SHORT_NAME: "DD",
+	ORDER_ID: 0x09,
+	OFFSET: 0x005D,
+	TOGGLE_MASK: 0b00000000000100000000000000000000,
+	MAP: DELAY_BASIC_MAP
+};
+
+const CE = {
+	NAME: "Chorus",
+	SHORT_NAME: "CE",
+	ORDER_ID: 0x0A,
+	OFFSET: 0x0064,
+	TOGGLE_MASK: 0b00000000000010000000000000000000,
+	MAP: CHORUS_BASIC_MAP
+};
+
+const PN = {
+	NAME: "Tremolo/Pan",
+	SHORT_NAME: "PN",
+	ORDER_ID: 0x00,
+	OFFSET: 0x0068,
+	TOGGLE_MASK: 0b0,
+	MAP: TREMOLO_PANNER_MAP
+};
+
+const RV = {
+	NAME: "Reverb",
+	SHORT_NAME: "RV",
+	ORDER_ID: 0x0B,
+	OFFSET: 0x006D,
+	TOGGLE_MASK: 0b00000000000001000000000000000000,
+	MAP: REVERB_BASIC_MAP
+};
+
+
+
+const EFFECTS = [];
+
+const ALGORITHM_VINTAGE_MAP = [{
+	
+}];
+
+export {
+    ALGORITHM_VINTAGE_MAP
+};

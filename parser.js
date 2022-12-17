@@ -77,6 +77,7 @@ const parser = (buffer) => {
     const parsedMessages = messages.map(parseMessage);
 
     console.log(`fant ${messages.length} meldinger`);
+    console.log(parsedMessages);
 
     return parsedMessages;
 };

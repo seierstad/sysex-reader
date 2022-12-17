@@ -1,0 +1,148 @@
+"use strict";
+import {WAH_MAP} from "./wah-map.js";
+import {SEND_RETURN_MAP} from "./send-return-map.js";
+import {PREAMP_PATCH_MAP} from "./preamp-map.js";
+import {SPEAKER_SIMULATOR_MAP} from "./speaker-simulator-map.js";
+import {EQ_MAP} from "./eq-map.js";
+import {NOISE_SUPPRESSOR_MAP} from "./noise-suppressor-map.js";
+import {HARMONIZER_4VOICE_MAP} from "./harmonizer-4voice-map.js";
+import {FOOT_VOLUME_MAP} from "./foot-volume-map.js";
+import {DELAY_MINIMAL_MAP} from "./delay-basic-map.js";
+import {CHORUS_MINIMAL_MAP} from "./chorus-map.js";
+import {MASTER_MAP} from "./master-map.js";
+
+/*
+
+OFFSETS for HARMONY algorithm
+ORDER: 0x0001
+REVERB_CONNECT: 0x001B,
+TOGGLE: 0x001C,
+WAH: 0x0020,
+S/R: 0x0023,
+PRE: 0x0027,
+SPS: 0x0031,
+EQ:  0x0035,
+NS:  0x003E,
+HR:  0x0041,
+FV:  0x006B,
+DD:  0x006D,
+CE:  0x0073,
+RV:  0x0075,
+MASTER: 0x0136,
+ASSIGN: 0x013A,
+NAME: 0x020A
+
+*/
+
+const WAH = {
+	NAME: "Wah Pedal",
+	SHORT_NAME: "WAH",
+	ORDER_ID: 0x00,
+	OFFSET: 0x0020
+	TOGGLE_MASK: 0b01000000000000000000000000000000,
+	MAP: WAH_MAP
+};
+
+const SR = {
+	NAME: "Send/Return",
+	SHORT_NAME: "S/R",
+	ORDER_ID: 0x01,
+	OFFSET: 0x0023,
+	TOGGLE_MASK: 0b00100000000000000000000000000000,
+	MAP: SEND_RETURN_MAP
+};
+
+const PRE = {
+	NAME: "Preamp",
+	SHORT_NAME: "PRE",
+	ORDER_ID: 0x02,
+	OFFSET: 0x0027,
+	TOGGLE_MASK: 0b00010000000000000000000000000000,
+	MAP: PREAMP_PATCH_MAP
+};
+
+const SPS = {
+	NAME: "Speaker Simulator",
+	SHORT_NAME: "SPS",
+	ORDER_ID: 0x03,
+	OFFSET: 0x0031,
+	TOGGLE_MASK: 0b00001000000000000000000000000000,
+	MAP: SPEAKER_SIMULATOR_MAP
+};
+
+const EQ = {
+	NAME: "Equalizer",
+	SHORT_NAME: "EQ",
+	ORDER_ID: 0x04,
+	OFFSET: 0x0035,
+	TOGGLE_MASK: 0b00000100000000000000000000000000,
+	MAP: EQ_MAP
+};
+
+const NS = {
+	NAME: "Noise Suppressor",
+	SHORT_NAME: "NS",
+	ORDER_ID: 0x05,
+	OFFSET: 0x003E,
+	TOGGLE_MASK: 0b00000010000000000000000000000000,
+	MAP: NOISE_SUPPRESSOR_MAP
+};
+
+const HR = {
+	NAME: "Harmonizer",
+	SHORT_NAME: "HR",
+	ORDER_ID: 0x06,
+	OFFSET: 0x0041,
+	TOGGLE_MASK: 0b00000001000000000000000000000000,
+    MAP: HARMONIZER_4VOICE_MAP
+};
+
+const FV = {
+	NAME: "Foot Volume",
+	SHORT_NAME: "FV",
+	ORDER_ID: 0x07,
+	OFFSET: 0x006B,
+	TOGGLE_MASK: 0b00000000010000000000000000000000,
+	MAP: [...FOOT_VOLUME_MAP, {name: "unused", byteLength: 1, values: UNUSED}]
+};
+
+const DD = {
+	NAME: "Delay",
+	SHORT_NAME: "DD",
+	ORDER_ID: 0x08,
+	OFFSET: 0x006D,
+	TOGGLE_MASK: 0b00000000001000000000000000000000,
+	MAP: DELAY_MINIMAL_MAP
+};
+
+const CE = {
+	NAME: "Chorus",
+	SHORT_NAME: "CE",
+	ORDER_ID: 0x09,
+	OFFSET: 0x0073,
+	TOGGLE_MASK: 0b00000000000100000000000000000000,
+	MAP: CHORUS_MINIMAL_MAP
+};
+
+const RV = {
+	NAME: "Reverb",
+	SHORT_NAME: "RV",
+	ORDER_ID: 0x0A,
+	OFFSET: 0x0075,
+	TOGGLE_MASK: 0b00000000000010000000000000000000,
+	MAP: REVERB_BASIC_MAP
+};
+
+
+
+const EFFECTS = [
+
+]
+
+const ALGORITHM_HARMONY_MAP = [{
+	
+}];
+
+export {
+	ALGORITHM_HARMONY_MAP
+};

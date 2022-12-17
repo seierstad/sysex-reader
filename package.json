@@ -16,6 +16,7 @@
   "dependencies": {
     "es-module-shims": "^1.6.2",
     "htm": "^3.1.1",
-    "preact": "^10.11.3"
+    "preact": "^10.11.3",
+    "web-midi": "github:seierstad/web-midi"
   }
 }
