@@ -12,14 +12,14 @@ import {MESSAGE_TYPE} from "./message-types.js";
 
 const parseDeviceId = (id) => {
     return {
-        "deviceId": (id === DEVICE_ID_BROADCAST) ? "broadcast" : id
+        "device_id": (id === DEVICE_ID_BROADCAST) ? "broadcast" : id
     };
 };
 
 
 const parseMessageID = (byte) => {
-    const message = [MESSAGE_SUBJECT[byte & 0x0F], MESSAGE_ACTION[byte & 0xF0]].join(" ");
-    return {message};
+    const message_name = [MESSAGE_SUBJECT[byte & 0x0F], MESSAGE_ACTION[byte & 0xF0]].join(" ");
+    return {message_name};
 };
 
 
@@ -54,7 +54,7 @@ const parseBlofeldMessage = (message) => {
         "message_id": message[1],
         ...parseDeviceId(message[0]),
         ...parseMessageID(message[1]),
-        ...messageContent
+        "message_content": messageContent
     };
 
     return result;

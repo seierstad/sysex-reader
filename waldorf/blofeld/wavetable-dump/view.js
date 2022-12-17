@@ -7,7 +7,7 @@ import {groupReducer} from "../../../functions.js";
 import PolarPlot from "./polar-plot.js";
 
 
-const wavetablePicker = ({slot, name}) => `${slot}-${name}`;
+const wavetablePicker = ({message_content: {slot, name}}) => `${slot}-${name}`;
 const wavetableGroupReducer = groupReducer(wavetablePicker);
 
 const shift = {
@@ -74,7 +74,7 @@ const Wavetable = (props) => {
         event.stopPropagation();
     };
 
-    const waves = messages.map(({wave}) => wave.float);
+    const waves = messages.map(({message_content: {wave}}) => wave.float);
 
     return html`
         <dl>
