@@ -1,6 +1,6 @@
 "use strict";
 import {LPF_FREQUENCIES} from "./common.js";
-
+import {ALGORITHM_NAME} from "../data-set/algorithm.js";
 
 const TYPES = {
     ENUM: Symbol("ENUM"),
@@ -8,6 +8,11 @@ const TYPES = {
     MAPPED_RANGE: Symbol("MAPPED_RANGE"),
     SPLIT: Symbol("SPLIT"),
     UNUSED: Symbol("UNUSED")
+};
+
+const ALGORITHM = {
+    type: TYPES.ENUM,
+    values: ALGORITHM_NAME
 };
 
 const UNUSED = {

@@ -5,7 +5,7 @@ import * as MANUFACTURERS from "./manufacturers.js";
 import {groupReducer} from "./functions.js";
 import {parser} from "./parser.js";
 import HexMessage from "./hex-monitor.js";
-import Midi from "web-midi/midi.js";
+import {Midi} from "web-midi";
 
 const MANUF_ARRAY = Object.entries(MANUFACTURERS);
 

@@ -52,38 +52,47 @@ const PREAMP_MODE = {
 
 const PREAMP_MAP = [{
     name: "Type",
+    key: "type",
     byteLength: 1,
     values: PREAMP_TYPE_NAMES
 }, {
     name: "Volume",
+    key: "volume",
     byteLength: 1,
     values: PERCENTAGE
 }, {
     name: "Bass",
+    key: "bass",
     byteLength: 1,
     values: PERCENTAGE
 }, {
     name: "Middle",
+    key: "middle",
     byteLength: 1,
     values: PERCENTAGE
 }, {
     name: "Treble",
+    key: "treble",
     byteLength: 1,
     values: PERCENTAGE
 }, {
     name: "Presence",
+    key: "treble",
     byteLength: 1,
     values: PERCENTAGE
 }, {
     name: "Master",
+    key: "master",
     byteLength: 1,
     values: PERCENTAGE
 }, {
     name: "Bright",
+    key: "bright",
     byteLength: 1,
     values: PREAMP_BRIGHT
 }, {
     name: "Gain",
+    key: "gain",
     byteLength: 1,
     values: PREAMP_GAIN
 }];
@@ -92,6 +101,7 @@ const PREAMP_MAP = [{
 const PREAMP_PATCH_MAP = [
     {
         name: "Mode",
+        key: "mode",
         byteLength: 1,
         values: PREAMP_MODE
     },
