@@ -1,7 +1,9 @@
 "use strict";
+import {TYPES, PERCENTAGE, TOGGLE} from "./data-types.js";
+
 
 const OUTPUT_CHANNEL = {
-    type: TYPE.ENUM,
+    type: TYPES.ENUM,
     values: {
         0x00: "OUTPUT A",
         0x01: "OUTPUT B",

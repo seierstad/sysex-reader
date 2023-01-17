@@ -1,5 +1,5 @@
 "use strict";
-import {LPF_FREQUENCIES} from "./common.js";
+import {LPF_FREQUENCIES} from "../data-set/common.js";
 import {ALGORITHM_NAME} from "../data-set/algorithm.js";
 
 const TYPES = {
@@ -7,7 +7,9 @@ const TYPES = {
     RANGE: Symbol("RANGE"),
     MAPPED_RANGE: Symbol("MAPPED_RANGE"),
     SPLIT: Symbol("SPLIT"),
-    UNUSED: Symbol("UNUSED")
+    UNUSED: Symbol("UNUSED"),
+    EFFECTS_ORDER: Symbol("EFFECTS_ORDER"),
+    NESTED: Symbol("NESTED")
 };
 
 const ALGORITHM = {
@@ -16,7 +18,7 @@ const ALGORITHM = {
 };
 
 const UNUSED = {
-    type: TYPE.UNUSED
+    type: TYPES.UNUSED
 };
 
 const TOGGLE = {
@@ -84,7 +86,7 @@ const TWENTYFOUR_TWENTYFOUR = {
 };
 
 const MONO_STEREO = {
-    type: TYPE.ENUM,
+    type: TYPES.ENUM,
     values: {
         0x00: "Mono",
         0x01: "Stereo"
@@ -97,7 +99,7 @@ const LPF = {
 };
 
 const PAN = {
-    type: TYPE.SPLIT,
+    type: TYPES.SPLIT,
     values: {
         min: [100, 0],
         max: [0, 100],
@@ -114,9 +116,12 @@ export {
     TYPES,
     TOGGLE,
     PERCENTAGE,
+    HUNDRED,
+    HUNDRED27,
     FIFTY_FIFTY,
     TWENTYFOUR_TWENTYFOUR,
     MONO_STEREO,
     LPF,
-    PAN
+    PAN,
+    ALGORITHM_NAME
 };

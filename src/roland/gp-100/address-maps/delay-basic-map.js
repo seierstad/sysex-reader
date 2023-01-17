@@ -1,8 +1,8 @@
 "use strict";
-import {HUNDRED, TOGGLE, TYPE} from "./data-types.js";
+import {HUNDRED, TOGGLE, TYPES} from "./data-types.js";
 
 const DELAY_MODES = {
-	type: TYPE.ENUM,
+	type: TYPES.ENUM,
 	values: {
 		0x00: "Normal Dly",
 		0x01: "Tempo Dly"
@@ -10,7 +10,7 @@ const DELAY_MODES = {
 };
 
 const DELAY_TIMES = {
-	type: TYPE.MAPPED_RANGE,
+	type: TYPES.MAPPED_RANGE,
 	values: {
 		min: 0,
 		max: 2000,
@@ -24,7 +24,7 @@ const DELAY_TIMES = {
 };
 
 const DELAY_INTERVALS = {
-	type: TYPE.ENUM,
+	type: TYPES.ENUM,
 	values: {
 		0x00: "1/4",
 		0x01: "1/3",
@@ -41,7 +41,7 @@ const DELAY_INTERVALS = {
 };
 
 const DELAY_LEVELS = {
-	type: TYPE.RANGE,
+	type: TYPES.RANGE,
 	values: {
 		min: 0,
 		max: 120

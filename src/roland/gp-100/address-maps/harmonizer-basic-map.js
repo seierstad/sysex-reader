@@ -1,8 +1,8 @@
 "use strict";
-import {TYPE, FIFTY_FIFTY, TWENTYFOUR_TWENTYFOUR, HUNDRED} from "./data-types.js";
+import {TYPES, FIFTY_FIFTY, TWENTYFOUR_TWENTYFOUR, HUNDRED} from "./data-types.js";
 
 const HARMONIZER_MODES = {
-	type: TYPE.ENUM,
+	type: TYPES.ENUM,
 	values: {
 		0x00: "1",
 		0x01: "2",
@@ -14,8 +14,8 @@ const HARMONIZER_MODES = {
 	}
 };
 
-const HARMONIZER_SCALE = {
-	type: TYPE.ENUM,
+const HARMONIZER_SCALES = {
+	type: TYPES.ENUM,
 	values: {
 		0x00: "Preset",
 		0x01: "User"
@@ -23,7 +23,7 @@ const HARMONIZER_SCALE = {
 };
 
 const HARMONIES = {
-	type: TYPE.ENUM,
+	type: TYPES.ENUM,
 	values: {
 		0x00: "-2oct",
 		0x01: "-14th",
@@ -58,7 +58,7 @@ const HARMONIES = {
 };
 
 const KEYS = {
-	type: TYPE.ENUM,
+	type: TYPES.ENUM,
 	values: {
 		0x00: "C (Am)",
 		0x01: "Db (Bbm)",
@@ -90,7 +90,7 @@ const HARMONIZER_BASIC_MAP = [{
 }, {
 	name: "Scale",
 	byteLength: 1,
-	values: HARMONIZER_SCALE
+	values: HARMONIZER_SCALES
 }, {
 	name: "Harmony",
 	byteLength: 1,

@@ -1,7 +1,7 @@
 "use strict";
 
 import {ALGORITHM_NAME} from "./algorithm.js";
-
+import {ALGORITHM_BASIC_MAP} from "../address-maps/index.js"
 
 
 const parsePatch = (data, offset = [0, 0]) => {
@@ -11,6 +11,7 @@ const parsePatch = (data, offset = [0, 0]) => {
 			value: ALGORITHM_NAME[data[0]],
 			data: data[0]
 		};
+		debugger;
 	}
 	return result;
 };

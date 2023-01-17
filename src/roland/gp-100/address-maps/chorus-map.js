@@ -1,9 +1,9 @@
 "use strict";
 
-import {HUNDRED, PERCENTAGE, LPF, TYPE, MONO_STEREO} from "./data-types.js";
+import {HUNDRED, PERCENTAGE, LPF, TYPES, MONO_STEREO} from "./data-types.js";
 
 const CE_PRE_DELAY = {
-    type: TYPE.MAPPED_RANGE,
+    type: TYPES.MAPPED_RANGE,
     values: {
         min: 0,
         max: 50,

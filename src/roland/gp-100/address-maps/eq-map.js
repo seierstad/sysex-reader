@@ -1,8 +1,8 @@
 "use strict";
-import {TYPE} from "./data-types.js";
+import {TYPES} from "./data-types.js";
 
 const EQ_MID_FREQUENCY = {
-    type: TYPE.ENUM,
+    type: TYPES.ENUM,
     values: {
         0x00: "100Hz",
         0x01: "125Hz",
@@ -29,7 +29,7 @@ const EQ_MID_FREQUENCY = {
 };
 
 const EQ_Q = {
-    type: TYPE.ENUM,
+    type: TYPES.ENUM,
     values: {
         0x00: 0.5,
         0x01: 1,
@@ -41,7 +41,7 @@ const EQ_Q = {
 };
 
 const EQ_DB = {
-    type: TYPE.MAPPED_RANGE,
+    type: TYPES.MAPPED_RANGE,
     values: {
         min: -20,
         max: 20,

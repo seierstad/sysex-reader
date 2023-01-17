@@ -4,7 +4,8 @@
   "description": "read and parse MIDI sysex files/streams",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "(echo \"const staticFiles = [\" && ((echo \"\nindex.html\nmanifest.json\nfavicon.ico\nstyles.css\" && find src -name \"*.js\" -type f) | awk '{print \"    \"./\" $0 \"\",\"}') && echo \"];\n\nexport {\n    staticFiles\n};\") > static-files.js"
   },
   "author": "Erik E. Seierstad",
   "license": "GPL-3.0-or-later",

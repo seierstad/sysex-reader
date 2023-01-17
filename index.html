@@ -9,6 +9,8 @@
         <link rel="manifest" href="/manifest.json" />
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/images/android-icon-192x192.png" />
+
 
 
         <!--  -->
@@ -22,13 +24,10 @@
               "htm": "./node_modules/htm/dist/htm.module.js",
               "htm/preact": "./node_modules/htm/preact/index.module.js",
               "web-midi": "./node_modules/web-midi/index.js",
-              "imports": "./imports.js"
+              "imports": "./src/imports.js"
             }
           }
         </script>
-        <script src="./node_modules/es-module-shims/dist/es-module-shims.js"></script>
-
-        <script defer type="module" src="./app.js"></script>
 
         <link href="styles.css" rel="stylesheet" type="text/css" />
         <style>
@@ -38,6 +37,9 @@
                 background-color: #CCF;
             }
         </style>
+        <script src="./node_modules/es-module-shims/dist/es-module-shims.js"></script>
+
+        <script defer type="module" src="./src/app.js"></script>
     </head>
     <body>
     </body>

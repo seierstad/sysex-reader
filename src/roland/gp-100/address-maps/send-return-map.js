@@ -1,8 +1,8 @@
 "use strict";
-import {HUNDRED, TYPE} from "./data-types.js";
+import {HUNDRED, TYPES} from "./data-types.js";
 
 const SEND_RETURN_MODES = {
-    type: TYPE.ENUM,
+    type: TYPES.ENUM,
     values: {
         0x00: "Normal",
         0x01: "Direct Mix",
@@ -11,7 +11,7 @@ const SEND_RETURN_MODES = {
 };
 
 const SEND_RETURN_TYPES = {
-    type: TYPE.ENUM,
+    type: TYPES.ENUM,
     values: {
         0x00: "Stereo",
         0x01: "S/R1 -> S/R2",
@@ -20,7 +20,7 @@ const SEND_RETURN_TYPES = {
 };
 
 const SEND_RETURN_SELECTS = {
-	type: TYPE.ENUM,
+	type: TYPES.ENUM,
 	values: {
 		0x00: "S/R1",
 		0x01: "S/R2",

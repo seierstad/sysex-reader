@@ -1,8 +1,8 @@
 "use strict";
-import {PERCENTAGE, TYPE} from "./data-types.js";
+import {PERCENTAGE, TYPES} from "./data-types.js";
 
 const PREAMP_TYPE_NAMES = {
-    type: TYPE.ENUM,
+    type: TYPES.ENUM,
     values: {
         0x00: "JC-120",
         0x01: "Clean Twin",
@@ -22,7 +22,7 @@ const PREAMP_TYPE_NAMES = {
 };
 
 const PREAMP_BRIGHT = {
-    type: TYPE.ENUM,
+    type: TYPES.ENUM,
     values: {
         0x00: "Off",
         0x01: "On"
@@ -30,7 +30,7 @@ const PREAMP_BRIGHT = {
 };
 
 const PREAMP_GAIN = {
-    type: TYPE.ENUM,
+    type: TYPES.ENUM,
     values: {
         0x00: "Low",
         0x01: "Mid",
@@ -39,7 +39,7 @@ const PREAMP_GAIN = {
 };
 
 const PREAMP_MODE = {
-    type: TYPE.ENUM,
+    type: TYPES.ENUM,
     values: {
         0x00: "Patch",
         0x01: "Setting[1]",

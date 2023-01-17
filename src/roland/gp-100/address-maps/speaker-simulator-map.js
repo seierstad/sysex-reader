@@ -1,10 +1,10 @@
 "use strict";
 
-import {PERCENTAGE, TYPE} from "./data-types.js";
+import {PERCENTAGE, TYPES} from "./data-types.js";
 
 
 const SPEAKER_SIMULATION_TYPE = {
-    type: TYPE.ENUM,
+    type: TYPES.ENUM,
     values: {
         0x00: "Small",
         0x01: "Middle",
@@ -22,7 +22,7 @@ const SPEAKER_SIMULATION_TYPE = {
 };
 
 const SPEAKER_SIMULATION_MIC_SETTING = {
-	type: TYPE.ENUM,
+	type: TYPES.ENUM,
 	values: {
         0x00: 1,
         0x01: 2,
@@ -45,7 +45,7 @@ const SPEAKER_SIMULATOR_MAP = [{
 	values: PERCENTAGE
 }, {
 	name: "Direct Level",
-	byteLenght: 1,
+	byteLength: 1,
 	values: PERCENTAGE
 }];
 

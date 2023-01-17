@@ -1,6 +1,6 @@
 
 "use strict";
-import {HUDRED} from "./data-types.js";
+import {HUNDRED} from "./data-types.js";
 
 const FREQ = {
     name: "Freq",

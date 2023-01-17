@@ -1,9 +1,9 @@
 "use strict";
 
-import {PERCENTAGE, LPF as LPFS, TYPE} from "./data-types.js";
+import {PERCENTAGE, LPF as LPFS, TYPES} from "./data-types.js";
 
 const REVERB_MODES = {
-	type: TYPE.ENUM,
+	type: TYPES.ENUM,
 	values: {
 		0x00: "Room 1",
 		0x01: "Room 2",
@@ -14,7 +14,7 @@ const REVERB_MODES = {
 };
 
 const REVERB_TIMES = {
-	type: TYPE.MAPPED_RANGE,
+	type: TYPES.MAPPED_RANGE,
 	values: {
 		min: 0.0,
 		max: 10.0,
@@ -28,7 +28,7 @@ const REVERB_TIMES = {
 };
 
 const REVERB_PREDELAYS = {
-	type: TYPE.MAPPED_RANGE,
+	type: TYPES.MAPPED_RANGE,
 	values: {
 		min: 0,
 		max: 100,
@@ -55,7 +55,7 @@ const HPF_FREQUENCIES = {
 };
 
 const HPFS = {
-	type: TYPE.ENUM,
+	type: TYPES.ENUM,
 	values: HPF_FREQUENCIES
 };
 

@@ -1,5 +1,6 @@
 "use strict";
 import {render, useState, useEffect, html} from "imports";
+import * as serviceWorkerRegistration from "./service-worker-registration.js";
 
 import * as MANUFACTURERS from "./manufacturers.js";
 import {groupReducer} from "./functions.js";
@@ -115,5 +116,6 @@ function App (props) {
     `;
 }
 
+serviceWorkerRegistration.register();
 
 render(html`<${App} model=${model} />`, document.body);

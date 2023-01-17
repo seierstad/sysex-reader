@@ -9,7 +9,7 @@ import {NOISE_SUPPRESSOR_MAP} from "./noise-suppressor-map.js";
 import {PHASER_MAP} from "./phaser-map.js";
 import {FLANGER_MAP} from "./flanger-map.js";
 import {HARMONIZER_BASIC_MAP} from "./harmonizer-basic-map.js";
-import {FOOT_VOLUME_MAP} from "./foot-volume-map.js";
+import {FOOT_VOLUME_MAP, FOOT_VOLUME_NAMES} from "./foot-volume-map.js";
 import {DELAY_4TAP_MAP} from "./delay-4tap-map.js";
 import {CHORUS_MAP} from "./chorus-map.js";
 import {REVERB_MAP} from "./reverb-map.js";
@@ -45,6 +45,7 @@ NAME:   0x020A
 const CL = {
 	NAME: "Compressor / Limiter",
 	SHORT_NAME: "CL",
+	KEY: "compressor_limiter",
 	ORDER_ID: 0x00,
 	OFFSET: 0x0020,
 	TOGGLE_MASK: 0b01000000000000000000000000000000,
@@ -133,8 +134,7 @@ const HR = {
 };
 
 const FV = {
-	NAME: "Foot Volume",
-	SHORT_NAME: "FV",
+    ...FOOT_VOLUME_NAMES,
 	ORDER_ID: 0x0A,
 	OFFSET: 0x005A,
 	TOGGLE_MASK: 0b00000000000010000000000000000000,

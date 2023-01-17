@@ -1,8 +1,8 @@
 "use strict";
-import {HUNDRED, TYPE} from "./data-types.js";
+import {HUNDRED, TYPES} from "./data-types.js";
 
 const ENV_INPUT_VALUES = {
-    type: TYPE.ENUM,
+    type: TYPES.ENUM,
     values: {
         0x00: "Guitar",
         0x01: "NS"
