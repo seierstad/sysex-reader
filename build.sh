@@ -1,17 +1,9 @@
 #!/bin/bash
-(echo "const staticFiles = [" && ((echo "
+(echo "[" && ((echo "
 index.html
 manifest.json
 favicon.ico
-styles.css" && find src -name "*.js" -type f) | awk '{print "    \"./" $0 "\","}') && echo "];
-
-export {
-    staticFiles
-};") > static-files.js
+styles.css" && find src -name "*.js" -type f) | awk 'END{print "    \"./" $0 "\""} NR > 1 {print "    \"./" prev "\","} {prev = $0}') && echo "]") > cache-list-static-files.json
 
 
-(echo "const images = [" && ((find images -name "*.png" -type f && find images -name "*.svg" -type f) | awk '{print "    \"./" $0 "\","}') && echo "];
-
-export {
-    images
-};") > images.js
+(echo "[" && ((find images -name "*.png" -type f && find images -name "*.svg" -type f) | awk 'END{print "    \"./" $0 "\""} NR > 1 {print "    \"./" prev "\","} {prev = $0}') && echo "]") > cache-list-images.json

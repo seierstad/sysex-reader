@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /src/
+Disallow: /node_modules/
+Crawl-delay: 200
+Visit-time: 0200-0300

@@ -1,4 +1,4 @@
-const staticFiles = [
+[
     "./",
     "./index.html",
     "./manifest.json",
@@ -107,9 +107,5 @@ const staticFiles = [
     "./src/waldorf/index.js",
     "./src/waldorf/models.js",
     "./src/waldorf/parser.js",
-    "./src/waldorf/waldorf-view.js",
-];
-
-export {
-    staticFiles
-};
+    "./src/waldorf/waldorf-view.js"
+]
