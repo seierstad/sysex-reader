@@ -9,14 +9,14 @@ const registerServiceWorker = (config = {}) => {
     } = config;
 
     if ("serviceWorker" in navigator) {
-        console.log("service worker støttes");
+        //console.log("service worker støttes");
 
         document.addEventListener("DOMContentLoaded", () => {
             const url = `${filename}`;
             navigator.serviceWorker
                 .register(url, {scope: "/", type: "module"})
                 .then((registration) => {
-                    console.log({registration});
+                    //console.log({registration});
                     const serviceWorker = registration.installing || registration.waiting || registration.active;
 /*
                     serviceWorker.onstatechange = (event) => console.log("statechange", event);

@@ -21,7 +21,6 @@ function HexMessage (props) {
     	return acc;
     }, []);
 
-    console.log(grouped);
     return html`
     	<code>
     		${grouped.map((msgByte, msgIndex, msgArr) => {
@@ -34,13 +33,4 @@ function HexMessage (props) {
     `;
 }
 
-/*
-function HexMonitor (props) {
-	const {messages = []} = props;
-
-    return html`
-        ${messages.map((message, messageIndex) => html`<code key=${messageIndex}>${message.map((byte, byteIndex) => html`<var key=${byteIndex}>${byte.}</var>`)}</code>`)}
-    `;
-}
-*/
 export default HexMessage;
